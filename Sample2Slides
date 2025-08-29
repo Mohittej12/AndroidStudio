@@ -1,0 +1,596 @@
+// AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BloodCellBuddy">
+
+        <!-- Main (first slide) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Second Slide Activity -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:label="Second Slide"
+            android:theme="@style/Theme.BloodCellBuddy" />
+    </application>
+
+</manifest>
+
+
+// MainActivity.java
+package com.example.bloodcellbuddy;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // links to activity_main.xml
+
+        Button btnEnter = findViewById(R.id.btnEnter);
+
+        btnEnter.setOnClickListener(v -> {
+            // Show welcome message
+            Toast.makeText(this, "Welcome to Blood Cell Buddy AI!", Toast.LENGTH_SHORT).show();
+
+            // 🔹 Move to next page (SecondActivity)
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
+    }
+}
+
+
+// SecondActivity.java
+package com.example.bloodcellbuddy;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class SecondActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+
+        Button btnGetStarted = findViewById(R.id.btnGetStarted);
+        btnGetStarted.setOnClickListener(v -> {
+            Toast.makeText(this, "Next process starting...", Toast.LENGTH_SHORT).show();
+            // you can navigate to another Activity if needed
+            // startActivity(new Intent(this, ThirdActivity.class));
+        });
+    }
+}
+//box_bg.xml // DRAWABLE
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F9F9F9"/>
+    <corners android:radius="12dp"/>
+    <stroke android:width="1dp" android:color="#DDDDDD"/>
+</shape>
+
+//ic_launcher_background.xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F9F9F9"/>
+    <corners android:radius="12dp"/>
+    <stroke android:width="1dp" android:color="#DDDDDD"/>
+</shape>
+
+//ic_launcher_foreground.xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="85.84757"
+                android:endY="92.4963"
+                android:startX="42.9492"
+                android:startY="49.59793"
+                android:type="linear">
+                <item
+                    android:color="#44000000"
+                    android:offset="0.0" />
+                <item
+                    android:color="#00000000"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+        android:strokeWidth="1"
+        android:strokeColor="#00000000" />
+</vector>
+
+//ic_microscope.xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="105dp"
+    android:height="104dp"
+    android:viewportWidth="105"
+    android:viewportHeight="104">
+  <path
+      android:pathData="M12.5,24C12.5,15.16 19.66,8 28.5,8H76.5C85.34,8 92.5,15.16 92.5,24V72C92.5,80.84 85.34,88 76.5,88H28.5C19.66,88 12.5,80.84 12.5,72V24Z">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startX="24.22"
+          android:startY="19.72"
+          android:endX="80.78"
+          android:endY="76.28"
+          android:type="linear">
+        <item android:offset="0" android:color="#FF00E5FF"/>
+        <item android:offset="1" android:color="#FF2196F3"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <group>
+    <clip-path
+        android:pathData="M32.5,28h40v40h-40z"/>
+    <path
+        android:pathData="M45,53H45.94V54.25C45.94,54.94 46.5,55.5 47.19,55.5H50.31C51,55.5 51.56,54.94 51.56,54.25V53H52.5C53.88,53 55,51.88 55,50.5V33C55,31.62 53.88,30.5 52.5,30.5V29.25C52.5,28.56 51.94,28 51.25,28H46.25C45.56,28 45,28.56 45,29.25V30.5C43.62,30.5 42.5,31.62 42.5,33V50.5C42.5,51.88 43.62,53 45,53ZM68.75,63H68.65C71.03,60.34 72.5,56.84 72.5,53C72.5,44.73 65.77,38 57.5,38V43C63.01,43 67.5,47.49 67.5,53C67.5,58.51 63.01,63 57.5,63H36.25C34.18,63 32.5,64.68 32.5,66.75C32.5,67.44 33.06,68 33.75,68H71.25C71.94,68 72.5,67.44 72.5,66.75C72.5,64.68 70.82,63 68.75,63ZM40.63,60.5H56.88C57.22,60.5 57.5,60.22 57.5,59.88V58.63C57.5,58.28 57.22,58 56.88,58H40.63C40.28,58 40,58.28 40,58.63V59.88C40,60.22 40.28,60.5 40.63,60.5Z"
+        android:fillColor="#ffffff"/>
+  </group>
+  <path
+      android:pathData="M76.5,12C76.5,5.37 81.87,0 88.5,0C95.13,0 100.5,5.37 100.5,12C100.5,18.63 95.13,24 88.5,24C81.87,24 76.5,18.63 76.5,12Z"
+      android:fillColor="#B86EFF"/>
+  <path
+      android:pathData="M4.5,88C4.5,83.58 8.08,80 12.5,80C16.92,80 20.5,83.58 20.5,88C20.5,92.42 16.92,96 12.5,96C8.08,96 4.5,92.42 4.5,88Z"
+      android:fillColor="#FF6B6B"/>
+  <path
+      android:pathData="M80.5,14C80.5,10.69 83.19,8 86.5,8C89.81,8 92.5,10.69 92.5,14C92.5,17.31 89.81,20 86.5,20C83.19,20 80.5,17.31 80.5,14Z"
+      android:fillColor="#00E5FF"/>
+</vector>
+
+//activity_main.xml //LAYOUT
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A1C3A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- App Logo -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_microscope"
+            android:contentDescription="App Logo"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood Cell Buddy"
+            android:textColor="#00C2FF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✨ Experience the Future ✨"
+            android:textColor="#00C2FF"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Bold Heading -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transform Your Laboratory"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="with AI Intelligence"
+            android:textColor="#00C2FF"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revolutionary white blood cell analysis powered by cutting-edge artificial intelligence."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="28dp" />
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/btnEnter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Blood Cell Buddy AI →"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:paddingLeft="28dp"
+            android:paddingRight="28dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:backgroundTint="#00C2FF"
+            android:layout_marginBottom="28dp" />
+
+        <!-- Features -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• AI-Powered Analysis"
+            android:textColor="#00C2FF"
+            android:textSize="14sp"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Medical Grade Precision"
+            android:textColor="#00C2FF"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>
+
+//activity_second.xml
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚗️ Precision • Accuracy • Innovation"
+            android:textColor="#E91E63"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WBC Differential Counter"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revolutionary AI-enhanced white blood cell differential counting platform designed for medical professionals"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Feature cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔵 Secure Authentication\nAdvanced security protocols exclusively for licensed medical professionals"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟢 Patient Management\nComprehensive patient tracking with clinical history integration"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟣 AI-Enhanced Counting\nManual and intelligent image analysis for precise cell differentiation"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟠 Smart Analytics\nReal-time calculations with professional PDF report generation"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+        <!-- Advanced features -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advanced Laboratory Features"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📈 Multi-Modal Analysis\nCombine manual counting with multiple instant calculations"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="⏱️ Real Time Processing\nSeamless integration with clinical workflows"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📋 Clinical Integration\nGenerate detailed PDF reports with analysis"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📑 Comprehensive Reports\nComplete statistical analysis and interpretations"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+        </GridLayout>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ready to Begin?"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join thousands of medical professionals using our advanced hematology analysis platform"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnGetStarted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            android:backgroundTint="#FF007A"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>
+
+//colors.xml //VALUES
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+
+//strings.xml
+<resources>
+    <string name="app_name">BloodCellBuddy</string>
+</resources>
+
+//themes.xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- App Theme -->
+    <style name="Theme.BloodCellBuddy" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme colors -->
+        <item name="colorPrimary">#00C2FF</item>
+        <item name="colorPrimaryDark">#0A1C3A</item>
+        <item name="colorAccent">#00C2FF</item>
+        <item name="android:windowBackground">#0A1C3A</item>
+    </style>
+
+</resources>
+<!--red line should now be there anyhwere in the codes ok ra-->
+
+//backup_rules.xml // XML
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample backup rules file; uncomment and customize as necessary.
+   See https://developer.android.com/guide/topics/data/autobackup
+   for details.
+   Note: This file is ignored for devices older than API 31
+   See https://developer.android.com/about/versions/12/backup-restore
+-->
+<full-backup-content>
+    <!--
+   <include domain="sharedpref" path="."/>
+   <exclude domain="sharedpref" path="device.xml"/>
+-->
+</full-backup-content>
+
+//data_extraction_rules.xml
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample data extraction rules file; uncomment and customize as necessary.
+   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   for details.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- TODO: Use <include> and <exclude> to control what is backed up.
+        <include .../>
+        <exclude .../>
+        -->
+    </cloud-backup>
+    <!--
+    <device-transfer>
+        <include .../>
+        <exclude .../>
+    </device-transfer>
+    -->
+</data-extraction-rules>
+
+//build.gradle.kts
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+}
+
+//build.gradle.kts
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+}
+
+android {
+    namespace = "com.example.bloodcellbuddy"
+    compileSdk = 36
+
+    defaultConfig {
+        applicationId = "com.example.bloodcellbuddy"
+        minSdk = 24
+        targetSdk = 36
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    buildFeatures {
+        compose = true
+    }
+}
+
+dependencies {
+    implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+
