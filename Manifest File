@@ -1,0 +1,90 @@
+//AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BloodCelBuddy">
+
+        <!-- Main (first slide) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Second Slide Activity -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:label="Second Slide"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Third Slide Activity -->
+        <activity
+            android:name=".ThirdActivity"
+            android:exported="true"
+            android:label="Third Slide"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Fourth Slide Activity -->
+        <activity
+            android:name=".FourthActivity"
+            android:exported="true"
+            android:label="Fourth Slide"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Dashboard Activity -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="true"
+            android:label="Dashboard"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Sixth Page: Analysis Activity -->
+        <activity
+            android:name=".AnalysisActivity"
+            android:exported="true"
+            android:label="Analysis"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Seventh Page: AI Image Analysis Activity -->
+        <activity
+            android:name=".AiImageAnalysisActivity"
+            android:exported="true"
+            android:label="AI Image Analysis"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Eighth Page: Clinical Report Activity -->
+        <activity
+            android:name=".ClinicalWBCReportActivity"
+            android:exported="true"
+            android:label="Clinical Report"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Ninth Page: Report Activity -->
+        <activity
+            android:name=".DownloadReportActivity"
+            android:exported="true"
+            android:label="Report"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+        <!-- Tenth Page: PDF Slide / Download Activity -->
+        <activity
+            android:name=".PdfSlideActivity"
+            android:exported="true"
+            android:label="PDF Slide"
+            android:theme="@style/Theme.BloodCelBuddy" />
+
+    </application>
+
+</manifest>
