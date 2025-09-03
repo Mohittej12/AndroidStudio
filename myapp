@@ -213,45 +213,41 @@ public class FourthActivity extends AppCompatActivity {
 package com.example.bloodcelbuddy;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class FourthActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
-    EditText edtEmail, edtPassword, edtConfirmPassword;
-    Button btnRegister;
+    Button btnStartAnalysis, btnStartFirstAnalysis;
+    TextView tvWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fourth);
+        setContentView(R.layout.activity_dashboard);
 
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.edtPassword);
-        edtConfirmPassword = findViewById(R.id.edtConfirmPassword);
-        btnRegister = findViewById(R.id.btnRegister);
+        // Bind UI
+        tvWelcome = findViewById(R.id.tvWelcome);
+        btnStartAnalysis = findViewById(R.id.btnStartAnalysis);
+        btnStartFirstAnalysis = findViewById(R.id.btnStartFirstAnalysis);
 
-        btnRegister.setOnClickListener(v -> {
-            String email = edtEmail.getText().toString().trim();
-            String pass = edtPassword.getText().toString().trim();
-            String confirmPass = edtConfirmPassword.getText().toString().trim();
+        // Set welcome text (later you can replace with logged-in username)
+        tvWelcome.setText("Welcome back,");
 
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(confirmPass)) {
-                Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
-            } else if (!pass.equals(confirmPass)) {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Account Registered! Pending Verification.", Toast.LENGTH_LONG).show();
-                // ✅ Later: Store user in Firebase / Database
-                finish(); // go back after registration
-            }
-        });
+        // Handle button clicks
+        btnStartAnalysis.setOnClickListener(v ->
+                Toast.makeText(this, "Start New WBC Analysis clicked", Toast.LENGTH_SHORT).show()
+        );
+
+        btnStartFirstAnalysis.setOnClickListener(v ->
+                Toast.makeText(this, "Start Your First Analysis clicked", Toast.LENGTH_SHORT).show()
+        );
     }
 }
+
 
 //bg_card.xml
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
