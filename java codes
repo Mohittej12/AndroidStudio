@@ -1,0 +1,625 @@
+//MainActivity
+package com.example.bloodcelbuddy;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // links to activity_main.xml
+
+        Button btnEnter = findViewById(R.id.btnEnter);
+
+        btnEnter.setOnClickListener(v -> {
+            // Show welcome message
+            Toast.makeText(this, "Welcome to Blood Cell Buddy AI!", Toast.LENGTH_SHORT).show();
+
+            // 🔹 Move to next page (SecondActivity)
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
+    }
+}
+
+
+//SecondActivity
+package com.example.bloodcelbuddy;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class SecondActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+
+        Button btnGetStarted = findViewById(R.id.btnGetStarted);
+        btnGetStarted.setOnClickListener(v -> {
+            Toast.makeText(this, "Next process starting...", Toast.LENGTH_SHORT).show();
+
+            // open 3rd slide
+            Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+            startActivity(intent);
+        });
+    }
+}
+
+//ThirdActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ThirdActivity extends AppCompatActivity {
+
+    EditText edtEmail, edtPassword;
+    Button btnSignIn, btnCreateAccount, btnUserLogin;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_third);
+
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
+        btnSignIn = findViewById(R.id.btnSignIn);
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
+        btnUserLogin = findViewById(R.id.btnUserLogin);
+
+        // ✅ Sign In Button → Go to DashboardActivity
+        btnSignIn.setOnClickListener(v -> {
+            String email = edtEmail.getText().toString();
+            String pass = edtPassword.getText().toString();
+
+            if(email.isEmpty() || pass.isEmpty()){
+                Toast.makeText(this, "Please enter Email & Password", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+
+                // ⬇️ This is what you wanted
+                Intent intent = new Intent(ThirdActivity.this, DashboardActivity.class);
+                startActivity(intent);
+                finish();  // closes login page so back button won’t return here
+            }
+        });
+
+        // ✅ Create Account Button → Go to FourthActivity
+        btnCreateAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(ThirdActivity.this, FourthActivity.class);
+            startActivity(intent);
+        });
+
+        // ✅ User Login Button
+        btnUserLogin.setOnClickListener(v ->
+                Toast.makeText(this, "User Login Selected", Toast.LENGTH_SHORT).show()
+        );
+    }
+}
+
+//FourthActivity
+package com.example.bloodcelbuddy;
+
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class FourthActivity extends AppCompatActivity {
+
+    EditText edtEmail, edtPassword, edtConfirmPassword;
+    Button btnRegister;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fourth);
+
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
+        edtConfirmPassword = findViewById(R.id.edtConfirmPassword);
+        btnRegister = findViewById(R.id.btnRegister);
+
+        btnRegister.setOnClickListener(v -> {
+            String email = edtEmail.getText().toString().trim();
+            String pass = edtPassword.getText().toString().trim();
+            String confirmPass = edtConfirmPassword.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(confirmPass)) {
+                Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            } else if (!pass.equals(confirmPass)) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Account Registered! Pending Verification.", Toast.LENGTH_LONG).show();
+                // ✅ Later: Store user in Firebase / Database
+                finish(); // go back after registration
+            }
+        });
+    }
+}
+
+//DashboardActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DashboardActivity extends AppCompatActivity {
+
+    Button btnStartAnalysis, btnStartFirstAnalysis;
+    TextView tvWelcome;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dashboard);
+
+        // Bind UI
+        tvWelcome = findViewById(R.id.tvWelcome);
+        btnStartAnalysis = findViewById(R.id.btnStartAnalysis);
+        btnStartFirstAnalysis = findViewById(R.id.btnStartFirstAnalysis);
+
+        // Set welcome text (later replace with logged-in username)
+        tvWelcome.setText("Welcome back,");
+
+        // ✅ Navigate to AnalysisActivity (6th page)
+        btnStartAnalysis.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, AnalysisActivity.class);
+            startActivity(intent);
+        });
+
+        btnStartFirstAnalysis.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, AnalysisActivity.class);
+            startActivity(intent);
+        });
+    }
+}
+
+//AnalysisActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.UUID;
+
+public class AnalysisActivity extends AppCompatActivity {
+
+    Button btnManual, btnAI, btnGenerateReport;
+    Button btnPlusNeutrophils, btnMinusNeutrophils;
+    Button btnPlusMonocytes, btnMinusMonocytes;
+    Button btnPlusEosinophils, btnMinusEosinophils;
+    Button btnPlusBasophils, btnMinusBasophils;
+    Button btnPlusLymphocytes, btnMinusLymphocytes;
+
+    TextView tvNeutrophils, tvMonocytes, tvEosinophils, tvBasophils, tvLymphocytes;
+    TextView tvSummary, tvTestingId;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_analysis);
+
+        btnManual = findViewById(R.id.btnManual);
+        btnAI = findViewById(R.id.btnAI);
+        btnGenerateReport = findViewById(R.id.btnGenerateReport);
+
+        btnPlusNeutrophils = findViewById(R.id.btnPlusNeutrophils);
+        btnMinusNeutrophils = findViewById(R.id.btnMinusNeutrophils);
+        tvNeutrophils = findViewById(R.id.tvNeutrophils);
+
+        btnPlusMonocytes = findViewById(R.id.btnPlusMonocytes);
+        btnMinusMonocytes = findViewById(R.id.btnMinusMonocytes);
+        tvMonocytes = findViewById(R.id.tvMonocytes);
+
+        btnPlusEosinophils = findViewById(R.id.btnPlusEosinophils);
+        btnMinusEosinophils = findViewById(R.id.btnMinusEosinophils);
+        tvEosinophils = findViewById(R.id.tvEosinophils);
+
+        btnPlusBasophils = findViewById(R.id.btnPlusBasophils);
+        btnMinusBasophils = findViewById(R.id.btnMinusBasophils);
+        tvBasophils = findViewById(R.id.tvBasophils);
+
+        btnPlusLymphocytes = findViewById(R.id.btnPlusLymphocytes);
+        btnMinusLymphocytes = findViewById(R.id.btnMinusLymphocytes);
+        tvLymphocytes = findViewById(R.id.tvLymphocytes);
+
+        tvSummary = findViewById(R.id.tvSummary);
+        tvTestingId = findViewById(R.id.tvTestingId);
+
+        String testingId = "TID-" + UUID.randomUUID().toString().substring(0, 8);
+        tvTestingId.setText("Testing ID: " + testingId);
+
+        setupCounter(btnPlusNeutrophils, btnMinusNeutrophils, tvNeutrophils);
+        setupCounter(btnPlusMonocytes, btnMinusMonocytes, tvMonocytes);
+        setupCounter(btnPlusEosinophils, btnMinusEosinophils, tvEosinophils);
+        setupCounter(btnPlusBasophils, btnMinusBasophils, tvBasophils);
+        setupCounter(btnPlusLymphocytes, btnMinusLymphocytes, tvLymphocytes);
+
+        btnManual.setOnClickListener(v ->
+                Toast.makeText(this, "Manual counter ready", Toast.LENGTH_SHORT).show()
+        );
+
+        // ✅ Go to 7th page
+        btnAI.setOnClickListener(v -> {
+            Intent intent = new Intent(AnalysisActivity.this, AiImageAnalysisActivity.class);
+            startActivity(intent);
+        });
+
+        // ✅ Go to 8th page
+        btnGenerateReport.setOnClickListener(v -> {
+            Intent intent = new Intent(AnalysisActivity.this, ClinicalWBCReportActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void setupCounter(Button plus, Button minus, TextView display) {
+        plus.setOnClickListener(v -> {
+            int count = Integer.parseInt(display.getText().toString());
+            count++;
+            display.setText(String.valueOf(count));
+            updateSummary();
+        });
+
+        minus.setOnClickListener(v -> {
+            int count = Integer.parseInt(display.getText().toString());
+            if (count > 0) count--;
+            display.setText(String.valueOf(count));
+            updateSummary();
+        });
+    }
+
+    private void updateSummary() {
+        int n = Integer.parseInt(tvNeutrophils.getText().toString());
+        int m = Integer.parseInt(tvMonocytes.getText().toString());
+        int e = Integer.parseInt(tvEosinophils.getText().toString());
+        int b = Integer.parseInt(tvBasophils.getText().toString());
+        int l = Integer.parseInt(tvLymphocytes.getText().toString());
+
+        int total = n + m + e + b + l;
+
+        if (total == 0) {
+            tvSummary.setText("No cells counted yet.");
+            return;
+        }
+
+        String summary = "Summary:\n" +
+                "Neutrophils: " + n + " (" + (n * 100 / total) + "%)\n" +
+                "Monocytes: " + m + " (" + (m * 100 / total) + "%)\n" +
+                "Eosinophils: " + e + " (" + (e * 100 / total) + "%)\n" +
+                "Basophils: " + b + " (" + (b * 100 / total) + "%)\n" +
+                "Lymphocytes: " + l + " (" + (l * 100 / total) + "%)\n" +
+                "Total: " + total;
+
+        tvSummary.setText(summary);
+    }
+}
+
+//AiImageAnalysisActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.UUID;
+
+public class AiImageAnalysisActivity extends AppCompatActivity {
+
+    private static final int PICK_GALLERY_REQUEST = 1;
+    private static final int PICK_FILE_REQUEST = 2;
+
+    TextView tvTitle, tvTestingId, tvSummary, tvImageCount;
+    Button btnGenerateReport, btnManualCounter, btnAddMore;
+    Spinner spinnerUpload;
+
+    ArrayList<Uri> imageUris = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ai_image_analysis);
+
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTestingId = findViewById(R.id.tvTestingId);
+        tvSummary = findViewById(R.id.tvSummary);
+        spinnerUpload = findViewById(R.id.spinnerUpload);
+        btnGenerateReport = findViewById(R.id.btnGenerateReport);
+        btnManualCounter = findViewById(R.id.btnManualCounter);
+        tvImageCount = findViewById(R.id.tvImageCount);
+        btnAddMore = findViewById(R.id.btnAddMore);
+
+        tvTitle.setText("AI Image Analysis");
+
+        String testingId = "TID-" + UUID.randomUUID().toString().substring(0, 8);
+        tvTestingId.setText("Testing ID: " + testingId);
+
+        setSummary(0, 0, 0, 0, 0);
+        updateImageCount();
+
+        String[] uploadOptions = {"Select Images", "Add from Gallery", "Add from Files"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_dropdown_item, uploadOptions);
+        spinnerUpload.setAdapter(adapter);
+
+        spinnerUpload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String choice = uploadOptions[position];
+                if (choice.equals("Add from Gallery")) {
+                    openGallery();
+                } else if (choice.equals("Add from Files")) {
+                    openFiles();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
+        btnAddMore.setOnClickListener(v -> {
+            Toast.makeText(AiImageAnalysisActivity.this, "Choose how to add more images", Toast.LENGTH_SHORT).show();
+            spinnerUpload.performClick();
+        });
+
+        // ✅ Go to 8th page
+        btnGenerateReport.setOnClickListener(v -> {
+            Intent intent = new Intent(AiImageAnalysisActivity.this, ClinicalWBCReportActivity.class);
+            startActivity(intent);
+        });
+
+        btnManualCounter.setOnClickListener(v -> finish());
+    }
+
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        galleryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        startActivityForResult(Intent.createChooser(galleryIntent, "Select from Gallery"), PICK_GALLERY_REQUEST);
+    }
+
+    private void openFiles() {
+        Intent fileIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        fileIntent.setType("image/*");
+        fileIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        startActivityForResult(Intent.createChooser(fileIntent, "Select from Files"), PICK_FILE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == PICK_GALLERY_REQUEST || requestCode == PICK_FILE_REQUEST) && resultCode == RESULT_OK) {
+            if (data.getClipData() != null) {
+                int count = data.getClipData().getItemCount();
+                for (int i = 0; i < count; i++) {
+                    Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                    imageUris.add(imageUri);
+                }
+            } else if (data.getData() != null) {
+                imageUris.add(data.getData());
+            }
+            updateImageCount();
+            analyzeImages();
+        }
+    }
+
+    private void updateImageCount() {
+        tvImageCount.setText("Uploaded Images: " + imageUris.size());
+    }
+
+    private void analyzeImages() {
+        int neutrophils = (int)(Math.random() * 20);
+        int monocytes = (int)(Math.random() * 10);
+        int eosinophils = (int)(Math.random() * 5);
+        int basophils = (int)(Math.random() * 3);
+        int lymphocytes = (int)(Math.random() * 15);
+        setSummary(neutrophils, monocytes, eosinophils, basophils, lymphocytes);
+    }
+
+    private void setSummary(int n, int m, int e, int b, int l) {
+        int total = n + m + e + b + l;
+        String summary = "Summary:\n" +
+                "Neutrophils: " + n + " (" + percent(n, total) + "%)\n" +
+                "Monocytes: " + m + " (" + percent(m, total) + "%)\n" +
+                "Eosinophils: " + e + " (" + percent(e, total) + "%)\n" +
+                "Basophils: " + b + " (" + percent(b, total) + "%)\n" +
+                "Lymphocytes: " + l + " (" + percent(l, total) + "%)\n" +
+                "Total: " + total;
+        tvSummary.setText(summary);
+    }
+
+    private int percent(int count, int total) {
+        return total == 0 ? 0 : (count * 100 / total);
+    }
+}
+
+//ClinicalWBCReportActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ClinicalWBCReportActivity extends AppCompatActivity {
+
+    TextView tvTitle, tvTestingReport, tvInterpretation, tvFooter;
+    Button btnDownload;
+    TableLayout tableLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_clinical_wbc_report);
+
+        // Bind Views
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTestingReport = findViewById(R.id.tvTestingReport);
+        tvInterpretation = findViewById(R.id.tvInterpretation);
+        tvFooter = findViewById(R.id.tvFooter);
+        btnDownload = findViewById(R.id.btnDownload);
+        tableLayout = findViewById(R.id.tableLayout);
+
+        // Get Data from Intent
+        String testingId = getIntent().getStringExtra("testingId");
+        int neutrophils = getIntent().getIntExtra("neutrophils", 0);
+        int monocytes = getIntent().getIntExtra("monocytes", 0);
+        int eosinophils = getIntent().getIntExtra("eosinophils", 0);
+        int basophils = getIntent().getIntExtra("basophils", 0);
+        int lymphocytes = getIntent().getIntExtra("lymphocytes", 0);
+
+        int total = neutrophils + monocytes + eosinophils + basophils + lymphocytes;
+
+        // Dynamic Testing ID
+        tvTestingReport.setText("TESTING GENERATION REPORT\nTesting ID: " + testingId);
+
+        // Fill dynamic table
+        addRow("Neutrophils", neutrophils, total);
+        addRow("Monocytes", monocytes, total);
+        addRow("Eosinophils", eosinophils, total);
+        addRow("Basophils", basophils, total);
+        addRow("Lymphocytes", lymphocytes, total);
+
+        // ✅ Button action: go to 9th page (ReportActivity)
+        btnDownload.setOnClickListener(v -> {
+            Intent intent = new Intent(ClinicalWBCReportActivity.this, DownloadReportActivity.class);
+            // Pass testingId if needed in 9th page
+            intent.putExtra("testingId", testingId);
+            startActivity(intent);
+        });
+    }
+
+    private void addRow(String cellType, int count, int total) {
+        TableRow row = new TableRow(this);
+
+        TextView tvType = new TextView(this);
+        tvType.setText(cellType);
+        tvType.setPadding(8, 8, 8, 8);
+
+        TextView tvCount = new TextView(this);
+        tvCount.setText(String.valueOf(count));
+        tvCount.setPadding(8, 8, 8, 8);
+
+        TextView tvPercent = new TextView(this);
+        if (total > 0) {
+            int percent = (count * 100) / total;
+            tvPercent.setText(percent + "%");
+        } else {
+            tvPercent.setText("0%");
+        }
+        tvPercent.setPadding(8, 8, 8, 8);
+
+        row.addView(tvType);
+        row.addView(tvCount);
+        row.addView(tvPercent);
+
+        tableLayout.addView(row);
+    }
+}
+
+//DownloadReportActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DownloadReportActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_download_report);
+
+        ImageButton backButton = findViewById(R.id.backButton);
+        Button downloadButton = findViewById(R.id.downloadButton);
+        Button goDashboardButton = findViewById(R.id.btnGoDashboard);
+
+        // Back button goes to previous activity
+        backButton.setOnClickListener(v -> finish());
+
+        // ✅ Download button shows success message
+        downloadButton.setOnClickListener(v ->
+                Toast.makeText(DownloadReportActivity.this, "PDF Downloaded Successfully", Toast.LENGTH_SHORT).show()
+        );
+
+        // ✅ Go to Dashboard button goes to 5th page
+        goDashboardButton.setOnClickListener(v -> {
+            Intent intent = new Intent(DownloadReportActivity.this, DashboardActivity.class);
+            startActivity(intent);
+        });
+    }
+}
+
+//PdfSlideActivity
+package com.example.bloodcelbuddy;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class PdfSlideActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pdf_slide);
+
+        ImageButton backButton = findViewById(R.id.backButtonPdf);
+        Button doneButton = findViewById(R.id.btnDone);
+
+        // Back button goes to previous activity (9th page)
+        backButton.setOnClickListener(v -> finish());
+
+        // Done button goes to Dashboard
+        doneButton.setOnClickListener(v -> {
+            Intent intent = new Intent(PdfSlideActivity.this, DashboardActivity.class);
+            startActivity(intent);
+        });
+    }
+}
