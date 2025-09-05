@@ -1,0 +1,891 @@
+//activity_second
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚗️ Precision • Accuracy • Innovation"
+            android:textColor="#E91E63"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WBC Differential Counter"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revolutionary AI-enhanced white blood cell differential counting platform designed for medical professionals"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Feature cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔵 Secure Authentication\nAdvanced security protocols exclusively for licensed medical professionals"
+                android:padding="10dp"
+                android:textColor="@color/black"
+
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟢 Patient Management\nComprehensive patient tracking with clinical history integration"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟣 AI-Enhanced Counting\nManual and intelligent image analysis for precise cell differentiation"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🟠 Smart Analytics\nReal-time calculations with professional PDF report generation"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+        <!-- Advanced features -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advanced Laboratory Features"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📈 Multi-Modal Analysis\nCombine manual counting with multiple instant calculations"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="⏱️ Real Time Processing\nSeamless integration with clinical workflows"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📋 Clinical Integration\nGenerate detailed PDF reports with analysis"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="📑 Comprehensive Reports\nComplete statistical analysis and interpretations"
+                android:padding="10dp"
+                android:background="@drawable/box_bg"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"/>
+        </GridLayout>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ready to Begin?"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join thousands of medical professionals using our advanced hematology analysis platform"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnGetStarted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            android:backgroundTint="#FF007A"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>
+
+
+//activity_third
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FDF7FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="20dp">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_microscope"
+            android:layout_marginTop="40dp"
+            android:contentDescription="App Logo"/>
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional Access"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#7B1FA2"
+            android:layout_marginTop="15dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/txtSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Access your AI-enhanced medical analysis platform"
+            android:textSize="14sp"
+            android:textColor="#9C27B0"
+            android:layout_marginTop="6dp"
+            android:gravity="center" />
+
+        <!-- Secure Login Label -->
+        <TextView
+            android:id="@+id/txtSecureLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒 Secure Login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#7B1FA2"
+            android:layout_marginTop="25dp" />
+
+        <!-- Login As -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login As"
+            android:textSize="14sp"
+            android:textColor="#6A0DAD"
+            android:layout_marginTop="15dp" />
+
+        <!-- User Login Button -->
+        <Button
+            android:id="@+id/btnUserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Login"
+            android:textColor="#6A0DAD"
+            android:drawableStart="@drawable/ic_stethoscope"
+            android:drawablePadding="10dp"
+            android:background="@drawable/rounded_border_button"
+            android:layout_marginTop="10dp"
+            android:padding="12dp" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_input_bg" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="8dp"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_input_bg" />
+
+        <!-- Security Info -->
+        <TextView
+            android:id="@+id/txtSecurityInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI-Enhanced Security • Multi-factor Authentication • End-to-end Encryption"
+            android:textSize="12sp"
+            android:textColor="#7B1FA2"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:padding="6dp" />
+
+        <!-- Sign In Button -->
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In Securely"
+            android:textColor="#FFFFFF"
+            android:drawableStart="@drawable/ic_shield"
+            android:drawablePadding="12dp"
+            android:layout_marginTop="20dp"
+            android:padding="14dp"
+            android:background="@drawable/gradient_button" />
+
+        <!-- Create Account Button -->
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Professional Account"
+            android:textColor="#FFFFFF"
+            android:drawableStart="@drawable/ic_add_shield"
+            android:drawablePadding="12dp"
+            android:layout_marginTop="12dp"
+            android:padding="14dp"
+            android:background="@drawable/gradient_button_alt" />
+
+    </LinearLayout>
+</ScrollView>
+
+//activity_fourth
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5FA">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Top Logo -->
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_microscope"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_bg"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join Our Platform"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#222222"/>
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register as a medical professional to access advanced hematology tools"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="#555555"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Section Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Professional Account"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All information will be verified for security"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Email Address"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/edtConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Confirm Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Security Notice -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F5"
+            android:padding="12dp"
+            android:text="⚠ Security Notice:\nYour credentials will be verified against medical licensing databases. Account activation may take 24-48 hours."
+            android:textColor="#D81B60"
+            android:textSize="13sp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Register Professional Account"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E91E63"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Terms -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By registering, you agree to our terms of service and confirm that you are a licensed medical professional authorized to access patient data."
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>
+
+
+//activity_analysis
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WBC Analysis"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp" />
+
+        <!-- Testing ID -->
+        <TextView
+            android:id="@+id/tvTestingId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testing ID: "
+            android:textSize="16sp"
+            android:textColor="#7F8C8D"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Top Buttons -->
+        <Button
+            android:id="@+id/btnManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manual Count Input"
+            android:textAllCaps="false"
+            android:backgroundTint="#2980B9"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnAI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI Image Analysis"
+            android:textAllCaps="false"
+            android:backgroundTint="#27AE60"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Cell Counters -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cell Counters:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="10dp" />
+
+        <!-- Neutrophils -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neutrophils:"
+
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMinusNeutrophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tvNeutrophils"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textStyle="bold"
+                android:hint="0"
+                android:textColor="@color/black"
+
+
+                android:textSize="18sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnPlusNeutrophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Monocytes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monocytes:"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMinusMonocytes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tvMonocytes"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textStyle="bold"
+                android:hint="0"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnPlusMonocytes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Eosinophils -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eosinophils:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMinusEosinophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tvEosinophils"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textStyle="bold"
+                android:hint="0"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnPlusEosinophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Basophils -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Basophils:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnMinusBasophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tvBasophils"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textStyle="bold"
+                android:hint="0"
+                android:textColor="@color/black"
+
+                android:textSize="18sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnPlusBasophils"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Lymphocytes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lymphocytes:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnMinusLymphocytes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tvLymphocytes"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textStyle="bold"
+                android:hint="0"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnPlusLymphocytes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Summary -->
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Summary will be generated here..."
+            android:textSize="16sp"
+            android:textColor="#2C3E50"
+            android:padding="10dp"
+            android:background="#ECF0F1"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Generate Report -->
+        <Button
+            android:id="@+id/btnGenerateReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate Analysis Report"
+            android:textAllCaps="false"
+            android:backgroundTint="#E74C3C"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>
+
+//activity_ai_image_analysis
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_analysis"
+    android:padding="20dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AI Image Analysis"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="#66000000"
+        android:textColor="@android:color/white"
+        android:elevation="4dp" />
+
+    <!-- Testing ID -->
+    <TextView
+        android:id="@+id/tvTestingId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testing ID: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black" />
+
+    <!-- Summary Box -->
+    <TextView
+        android:id="@+id/tvSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#AAFFFFFF"
+        android:padding="16dp"
+        android:text="Summary:\nNeutrophils: 0 (0%)\nMonocytes: 0 (0%)\nEosinophils: 0 (0%)\nBasophils: 0 (0%)\nLymphocytes: 0 (0%)\nTotal: 0"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_below="@id/tvTestingId"
+        android:layout_marginTop="20dp"
+        android:elevation="2dp" />
+
+    <!-- Spinner (Dropdown) for Upload -->
+    <Spinner
+        android:id="@+id/spinnerUpload"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tvSummary"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@android:drawable/editbox_background"
+        android:entries="@array/upload_options"
+        android:padding="10dp"
+        android:spinnerMode="dropdown" />
+
+    <!-- Uploaded images count -->
+    <TextView
+        android:id="@+id/tvImageCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uploaded Images: 0"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/spinnerUpload" />
+
+    <!-- Add More Images Button -->
+    <Button
+        android:id="@+id/btnAddMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add More Images"
+        android:layout_below="@id/tvImageCount"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="#2196F3"
+        android:textColor="@android:color/white" />
+
+    <!-- Generate Report Button -->
+    <Button
+        android:id="@+id/btnGenerateReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate Analysis Report"
+        android:layout_below="@id/btnAddMore"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="12dp" />
+
+    <!-- Manual Counter Button -->
+    <Button
+        android:id="@+id/btnManualCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Manual Counter"
+        android:layout_below="@id/btnGenerateReport"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FF9800"
+        android:textColor="@android:color/white"
+        android:padding="12dp" />
+
+</RelativeLayout>
+
+//strings.xml
+<resources>
+    <string name="app_name">BloodCelBuddy</string>
+
+    <string-array name="upload_options">
+        <item>Select Images here</item>
+        <item>Gallery</item>
+        <item>Camera</item>
+        <item>Document Scanner</item>
+    </string-array>
+</resources>
